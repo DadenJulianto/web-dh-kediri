@@ -21,7 +21,7 @@ import {
 
 const WHATSAPP = 'https://wa.me/6281211832567'
 const images = {
-  hero: '/w1.jpg',
+  hero: '/w1.JPG',
   courtyard: 'https://images.unsplash.com/photo-1542816417-0983679b4f44?auto=format&fit=crop&w=1000&q=80',
   study: 'https://images.unsplash.com/photo-1594736797933-d0d5b4f2e8d1?auto=format&fit=crop&w=1000&q=80',
   group: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&q=80',
