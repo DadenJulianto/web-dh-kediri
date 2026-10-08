@@ -4,9 +4,9 @@ import { useState } from 'react'
 import {
   ArrowRight,
   BookOpen,
-  Check,
   ChevronDown,
   Compass,
+  Download,
   GraduationCap,
   Camera,
   Landmark,
@@ -131,9 +131,38 @@ Talent is Our Strenght
 
       <section id="testimoni" className="scroll-mt-20 bg-sand px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="07 — Kata Mereka" title="Cerita baik dari keluarga Darul Hijrah." text="Kepercayaan orang tua dan pengalaman santri menjadi bagian penting dari perjalanan pendidikan kami." /><div className="grid gap-5 lg:grid-cols-3">{testimonials.map(([img, quote, name, role]) => <article key={name} className="flex min-h-72 flex-col justify-between overflow-hidden rounded-[24px] border border-emerald-900/10 bg-cream shadow-[0_12px_24px_rgba(11,46,41,0.05)]"><img src={img} alt={`Foto ${name}`} className="mt-7 size-20 self-center rounded-full object-cover object-top ring-4 ring-sand" /><div className="flex flex-1 flex-col justify-between p-7"><div><span className="font-serif text-5xl leading-none text-gold">“</span><blockquote className="mt-2 font-serif text-xl leading-8 text-emerald-950">{quote.replace(/^“|”$/g, '')}</blockquote></div><footer className="mt-8 border-t border-emerald-900/10 pt-5"><p className="font-bold text-emerald-950">{name}</p><p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-gold">{role}</p></footer></div></article>)}</div></div></section>
 
-      <section id="pendaftaran" className="scroll-mt-20 bg-cream px-5 py-24 text-ink lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="08 — Pendaftaran" title="Pendaftaran" /><div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:gap-16"><div className="space-y-8"><div><h3 className="font-serif text-2xl text-emerald-950">Periode Pendaftaran</h3><div className="mt-4 space-y-3 text-base leading-7 text-stone-700"><p>Gelombang 1: Oktober–Desember 2026</p><p>Gelombang 2: Januari–Maret 2027</p><p>Gelombang 3: April–Juni 2027</p><p className="font-semibold text-emerald-950">Kuota: 15 santri MTs dan 15 santri MA</p></div></div><div><h3 className="font-serif text-2xl text-emerald-950">Syarat Pendaftaran</h3><ol className="mt-4 list-decimal space-y-3 pl-6 text-base leading-7 text-stone-700"><li>Mengisi formulir pendaftaran.</li><li>Fotokopi KK, akta kelahiran, dan rapor terakhir.</li><li>Fotokopi SKL/ijazah dan Kartu KIP (jika ada).</li><li>Lancar membaca Al-Qur’an.</li><li>Sehat jasmani dan rohani.</li></ol></div></div><div className="rounded-2xl border border-emerald-900/20 bg-white p-6 md:p-8"><h3 className="font-serif text-2xl text-emerald-950">Prosedur</h3><ol className="mt-5 list-decimal space-y-5 pl-6 text-lg leading-7 text-emerald-950"><li>Mengisi formulir pendaftaran.</li><li>Membayar biaya pendaftaran (rek yayasan).</li><li>Melakukan konfirmasi pembayaran (nomor admin).</li><li>Mengikuti tes baca Al-Qur’an dan wawancara/observasi.</li><li>Melakukan daftar ulang (jika diterima).</li></ol><a href="/Informasi_PPDB_SMP_SMA_DH%20KEDIRI%202027-2028.pdf" download className="mt-8 inline-flex items-center gap-2 rounded-full border border-emerald-900/20 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900 transition hover:bg-emerald-900 hover:text-white">Unduh file informasi PSTBH <ArrowRight size={17} /></a></div></div><a href="https://pstb-dh-kediri.vercel.app/" target="_blank" rel="noreferrer" className="mt-10 inline-flex items-center gap-2 rounded-full bg-gold px-6 py-4 text-sm font-bold text-emerald-950 transition hover:bg-emerald-900 hover:text-white">Mulai Pendaftaran <ArrowRight size={17} /></a></div></section>
+      <section id="pendaftaran" className="scroll-mt-20 bg-cream px-5 py-24 text-ink lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading eyebrow="08 — Pendaftaran" title="Pendaftaran Santri Baru 2027/2028" text="Informasi inti pendaftaran. Jadwal lengkap, persyaratan, alur, dan rincian biaya tersedia di file informasi." />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <article className="rounded-2xl border border-emerald-900/10 bg-white p-5 sm:p-6">
+              <h3 className="font-serif text-xl text-emerald-950 sm:text-2xl">Jadwal Pendaftaran</h3>
+              <ul className="mt-4 space-y-2 text-sm leading-6 text-stone-700 sm:text-base">
+                <li><strong>Gelombang I:</strong> Agustus–Desember 2026</li>
+                <li><strong>Gelombang II:</strong> Januari–Maret 2027</li>
+                <li><strong>Gelombang III:</strong> April–Juni 2027</li>
+              </ul>
+            </article>
+            <article className="rounded-2xl border border-emerald-900/10 bg-white p-5 sm:p-6">
+              <h3 className="font-serif text-xl text-emerald-950 sm:text-2xl">Kuota Penerimaan</h3>
+              <p className="mt-4 text-sm leading-6 text-stone-700 sm:text-base">Boarding School putra: <strong>30 santri</strong><br />Putri: <strong>20 santri</strong></p>
+              <p className="mt-2 text-xs leading-5 text-stone-500 sm:text-sm">Pendaftaran ditutup jika kuota telah terpenuhi.</p>
+            </article>
+            <article className="flex flex-col justify-between rounded-2xl border border-emerald-900/10 bg-white p-5 sm:col-span-2 sm:p-6 lg:col-span-1">
+              <div>
+                <h3 className="font-serif text-xl text-emerald-950 sm:text-2xl">Informasi Lengkap</h3>
+                <p className="mt-3 text-sm leading-6 text-stone-700 sm:text-base">Unduh panduan resmi untuk melihat syarat, alur pendaftaran, jadwal, dan rincian biaya.</p>
+              </div>
+              <a href="/Informasi_PPDB_SMP_SMA_DH%20KEDIRI%202027-2028.pdf" download className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-emerald-900/20 bg-emerald-50 px-4 py-3 text-center text-sm font-bold leading-5 text-emerald-900 transition hover:bg-emerald-900 hover:text-white">
+                Unduh File Informasi <Download size={17} className="shrink-0" />
+              </a>
+            </article>
+          </div>
+          <a href="https://web-dh-kediri.vercel.app/" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-center text-sm font-bold text-emerald-950 transition hover:bg-emerald-900 hover:text-white sm:w-auto">Mulai Pendaftaran <ArrowRight size={17} /></a>
+        </div>
+      </section>
 
-      <section id="syarat" className="scroll-mt-20 bg-cream px-5 py-24 lg:px-8"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2"><div><SectionHeading eyebrow="08 — Syarat & Ketentuan" title="Siapkan dokumen terbaiknya." text="Pastikan seluruh berkas berikut telah tersedia sebelum memulai proses pendaftaran." /><ul className="space-y-4">{['Mengisi formulir pendaftaran dengan lengkap.', 'Surat keterangan sehat dari fasilitas kesehatan.', 'Fotokopi ijazah atau surat keterangan lulus.', 'Fotokopi akta kelahiran dan Kartu Keluarga.', 'Memiliki kemampuan membaca Al-Qur’an dasar.'].map(item => <li key={item} className="flex items-start gap-3 text-sm leading-6"><span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-emerald-900 text-gold"><Check size={13} /></span>{item}</li>)}</ul></div><div className="rounded-2xl bg-sand p-8"><ShieldCheck className="text-emerald-800" size={34} strokeWidth={1.5} /><h3 className="mt-10 font-serif text-3xl">Butuh informasi lebih lanjut?</h3><p className="mt-3 leading-7 text-stone-600">Tim penerimaan kami siap membantu menjawab pertanyaan Ayah dan Bunda.</p><a href={WHATSAPP} className="mt-7 inline-flex items-center gap-2 font-bold text-emerald-800">Tanya panitia <ArrowRight size={17} /></a></div></div></section>
+      <section id="syarat" className="scroll-mt-20 bg-cream px-5 py-24 lg:px-8"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2"><div><SectionHeading eyebrow="09 — Syarat Pendaftaran" title="Siapkan dokumen pendaftaran." text="Syarat, ketentuan beasiswa, dan dokumen yang perlu disiapkan tersedia lengkap di file informasi PPDB 2027/2028." /><a href="/Informasi_PPDB_SMP_SMA_DH%20KEDIRI%202027-2028.pdf" download className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-emerald-900/20 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900 transition hover:bg-emerald-900 hover:text-white sm:w-auto">Unduh File Informasi <Download size={17} /></a></div><div className="rounded-2xl bg-sand p-8"><ShieldCheck className="text-emerald-800" size={34} strokeWidth={1.5} /><h3 className="mt-10 font-serif text-3xl">Butuh informasi lebih lanjut?</h3><p className="mt-3 leading-7 text-stone-600">Tim penerimaan kami siap membantu menjawab pertanyaan Ayah dan Bunda.</p><a href={WHATSAPP} className="mt-7 inline-flex items-center gap-2 font-bold text-emerald-800">Tanya panitia <ArrowRight size={17} /></a></div></div></section>
 
       <section className="bg-sand px-5 py-24 lg:px-8"><div className="mx-auto max-w-3xl"><SectionHeading eyebrow="09 — Pertanyaan Umum" title="Yang sering ditanyakan." />{faqs.map(([question, answer], i) => <div key={question} className="mb-3 rounded-[20px] border border-emerald-950/10 bg-cream shadow-[0_8px_18px_rgba(11,46,41,0.04)]"><button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left font-serif text-xl"><span>{question}</span><ChevronDown className={`shrink-0 text-gold transition ${openFaq === i ? 'rotate-180' : ''}`} /></button>{openFaq === i && <p className="px-5 pb-5 text-sm leading-7 text-stone-600">{answer}</p>}</div>)}</div></section>
 
@@ -144,4 +173,3 @@ Talent is Our Strenght
 }
 
 export default PpdbLanding
-
