@@ -46,9 +46,9 @@ const activities = [
 
 const gallery = [
   ['/aqidah.jpg', 'Suasana lingkungan kelas'],
-  ['/b.arab.jpg', 'Kegiatan belajar santri'],
-  ['/english.jpg', 'Pembinaan bersama ustadz'],
-  ['/ju-jitsu.jpg  ', 'Penguatan fisik santri'],
+  ['/b.arab.JPG', 'Kegiatan belajar santri'],
+  ['/english.JPG', 'Pembinaan bersama ustadz'],
+  ['/ju-jitsu.jpg', 'Penguatan fisik santri'],
 ]
 
 const testimonials = [
