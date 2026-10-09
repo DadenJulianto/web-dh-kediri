@@ -20,7 +20,7 @@ import {
 
 const WHATSAPP = 'https://wa.me/6281211832567'
 const images = {
-  hero: '/w1.JPG',
+  hero: '/bg-utama.jpg',
   courtyard: 'https://images.unsplash.com/photo-1542816417-0983679b4f44?auto=format&fit=crop&w=1000&q=80',
   study: 'https://images.unsplash.com/photo-1594736797933-d0d5b4f2e8d1?auto=format&fit=crop&w=1000&q=80',
   group: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&q=80',
@@ -45,10 +45,13 @@ const activities = [
 ]
 
 const gallery = [
-  ['/aqidah.jpg', 'Suasana lingkungan kelas'],
-  ['/b.arab.JPG', 'Kegiatan belajar santri'],
-  ['/english.JPG', 'Pembinaan bersama ustadz'],
-  ['/ju-jitsu.jpg', 'Penguatan fisik santri'],
+  ['/tahfidz.jpg', 'Kegiatan tahfidz Al-Qur’an'],
+  ['/even-alquran.jpg', 'Kegiatan Al-Qur’an santri'],
+  ['/beladiri.jpg', 'Latihan beladiri Ju Jitsu'],
+  ['/pramuka.jpg', 'Kegiatan kepanduan santri'],
+  ['/pramuka-1.jpg', 'Pembinaan pramuka'],
+  ['/sepak-bola.jpg', 'Akademi sepak bola'],
+  ['/sepak-bola-1.jpg', 'Latihan sepak bola santri'],
 ]
 
 const testimonials = [
