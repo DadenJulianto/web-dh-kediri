@@ -27,9 +27,9 @@ const images = {
 }
 
 const programs = [
-  { icon: BookOpen, title: "Al-Qur'an Program", text: 'Tahsin, Tahfidz, Tasmi, Tajwid Bersanad, Tadabbur, Dan Menulis Metode Qolami' },
-  { icon: GraduationCap, title: 'Language Program', text: 'Kelas dengan pengantar bahasa inggris(islamic studies, English For Adab, Grammar, Daily Reminder), Arab: (Nahwu , Sorof, dan Muhadoroh' },
-  { icon: Landmark, title: 'Talent and Leadership', text: 'Mengembangkan bakat dan minat santri melalui pembinaan olahraga dan kepemimpinan, termasuk beladiri Ju Jitsu untuk disiplin, fokus, dan ketahanan fisik serta akademi sepak bola untuk melatih kerja sama tim, teknik dasar, dan sportivitas.' },
+  { icon: BookOpen, title: 'Qur’an Program', text: 'Menjadi ahlul Qur’an, pribadi yang cerdas bersama Al Qur’an. Menjadikan al qur’an dan as sunnah sebagai pedoman hidup.' },
+  { icon: GraduationCap, title: 'Language Program', text: 'Menjadi global Muslim citizen, pribadi yang mendunia dengan keterampilan bahasa yang baik.' },
+  { icon: Landmark, title: 'Talent & Leadership Program', text: 'Menjadi leader, pribadi yang mampu memimpin diri dan orang lain sesuai teladan nabi Muhammad SAW.' },
   
 ]
 
@@ -42,6 +42,13 @@ const activities = [
   ['06', 'Peternakan dan Perikanan', 'Merawat makhluk hidup dan belajar bertanggung jawab.'],
   ['07', 'Kepanduan', 'Membentuk karakter, kemandirian, dan keterampilan hidup.'],
   ['08', 'Pembinaan Ibadah, adab dan akhlak', 'Merawat makhluk hidup dan belajar bertanggung jawab.'],
+]
+
+const awardees = [
+  { name: 'Santri', award: 'Juara 3', event: 'Liga Santri Kediri', image: '/futsal.jpeg' },
+  { name: 'Haikal', award: 'Juara 2 Harapan', event: 'Pidato', image: '/pidato-juara-harapan.jpeg', imagePosition: 'object-[50%_18%]' },
+  { name: 'Umar', award: 'Juara 1 Harapan', event: 'Pidato', image: '/pidato.jpeg' },
+  { name: 'Ihab Amanullah', award: 'Juara 1', event: 'Kick Boxing', image: '/kick-boxing.jpeg' },
 ]
 
 const gallery = [
@@ -58,6 +65,14 @@ const testimonials = [
   ['/indra.jpg', '“Terima kasih para asatidz yang dengan sabar membimbing para santri yang sedang dalam masa mencari jati diri.”', 'Indra', 'Wali Santri'],
   ['/e-tanjung.webp', '“Respons ustadz bagus, penyampaian informasi dari pondok baik, dan ramah dalam menjawab setiap pertanyaan tentang pondok maupun anak santri.”', 'E-Tanjung', 'Wali Santri'],
   ['/sri-rahayu.jpg', '“Pondok yang nyaman untuk anak, memperhatikan kebutuhan santri dan kondisi wali santri, serta selalu berusaha memberikan yang terbaik.”', 'Sri Rahayu', 'Wali Santri'],
+]
+
+const asatidz = [
+  ['/ust ahmad.webp', 'Ust. Budi Santoso, M.Pd', 'Pimpinan Pesantren'],
+  ['/ust juni.webp', 'Ust. Juni', 'Guru Tahfizh'],
+  ['/ust budi.webp', 'Ust. Ahmad Mubarok S.Hub.Int.', 'Pembina Asrama'],
+  ['/ust dihya.webp', 'Ustadzah Dihya, Lc, M.Ag', 'Guru Sekolah'],
+  ['/ust syahrul.webp', 'Ust. Syahrul', 'Pengurus Pesantren'],
 ]
 
 const faqs = [
@@ -124,9 +139,32 @@ Talent is Our Strenght
 
       <section id="program" className="scroll-mt-20 bg-emerald-950 px-5 py-24 text-white lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="02 — Program Unggulan" title="Bekal lengkap untuk perjalanan yang panjang." text="Perpaduan pendidikan Al-Qur’an, akademik, dan pengalaman hidup dalam satu ekosistem pembinaan." light /><div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">{programs.map(({ icon: Icon, title, text }, i) => <article key={title} className={`group rounded-[24px] border p-6 shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1 hover:border-gold/60 ${i === 0 ? 'border-gold/60 bg-gold text-emerald-950' : 'border-white/10 bg-white/[.04]'} `}><div className={`mb-8 flex h-12 w-12 items-center justify-center rounded-2xl ${i === 0 ? 'bg-emerald-950/10 text-emerald-950' : 'bg-white/10 text-gold'}`}><Icon size={22} strokeWidth={1.8} /></div><h3 className="font-serif text-[1.7rem] leading-tight">{title}</h3><p className={`mt-3 text-sm leading-6 ${i === 0 ? 'text-emerald-900/75' : 'text-emerald-50/70'}`}>{text}</p></article>)}</div></div></section>
 
-      <section className="bg-sand px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="03 — Pola Pembinaan" title="Dekat, terarah, dan personal." text="Setiap hari adalah kesempatan untuk belajar lebih baik, dalam suasana yang aman dan saling menguatkan." /><div className="grid gap-5 md:grid-cols-3">{[['01', 'Halaqoh Harian', 'Setoran hafalan dan muraja’ah dalam kelompok kecil bersama pembimbing.'], ['02', 'Kajian Tarbawi', 'Ruang dialog untuk memahami adab, nilai, dan makna di balik setiap ilmu.'], ['03', 'Mentoring Personal', 'Pendampingan berkala untuk mengenali kebutuhan dan potensi setiap santri.']].map(([num, title, text]) => <article key={num} className="rounded-[24px] border border-emerald-900/10 bg-cream p-7 shadow-[0_10px_24px_rgba(11,46,41,0.04)]"><span className="inline-flex rounded-full border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gold">{num}</span><h3 className="mt-10 font-serif text-3xl text-emerald-950">{title}</h3><p className="mt-3 leading-7 text-stone-600">{text}</p></article>)}</div></div></section>
+      <section className="bg-cream px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="03 — Asatidz & Pengurus" title="Dibimbing oleh mereka yang menjadi teladan." /><div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">{asatidz.map(([img, name, role]) => <article key={name} className="group overflow-hidden rounded-[26px] border border-emerald-900/10 bg-[#f7faf9] shadow-[0_10px_26px_rgba(11,46,41,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(11,46,41,0.12)]"><div className="overflow-hidden bg-sand"><img src={img} alt={name} className="aspect-[4/5] w-full object-cover object-top saturate-[0.85] transition duration-500 group-hover:scale-[1.04] group-hover:saturate-100" /></div><div className="p-5"><p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Tim Pembina</p><h3 className="font-serif text-[1.8rem] leading-tight text-emerald-950">{name}</h3><p className="mt-2 text-sm font-medium text-stone-600">{role}</p></div></article>)}</div></div></section>
 
-      <section className="bg-cream px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="04 — Asatidz & Pengurus" title="Dibimbing oleh mereka yang menjadi teladan." /><div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">{[['/ustad-budi.webp', 'Ust. Budi Santoso, M.Pd', 'Pimpinan Pesantren'], ['/ust-toha.png', 'Ust. Toha', 'Koordinator Tahfizh'], ['/ust-ahmad.jpeg', 'Ust. Ahmad Mubarok  S.Hub.Int.', 'Pembina Asrama'], ['/ustadz-dihya.jpeg', 'Ustadzah Dihya, Lc, M.Ag', 'Guru Sekolah']].map(([img, name, role]) => <article key={name} className="group overflow-hidden rounded-[26px] border border-emerald-900/10 bg-[#f7faf9] shadow-[0_10px_26px_rgba(11,46,41,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(11,46,41,0.12)]"><div className="overflow-hidden bg-sand"><img src={img} alt={name} className="aspect-[4/5] w-full object-cover saturate-[0.85] transition duration-500 group-hover:scale-[1.04] group-hover:saturate-100" /></div><div className="p-5"><p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Tim Pembina</p><h3 className="font-serif text-[1.8rem] leading-tight text-emerald-950">{name}</h3><p className="mt-2 text-sm font-medium text-stone-600">{role}</p></div></article>)}</div></div></section>
+      <section id="penghargaan" className="scroll-mt-20 bg-emerald-950 px-5 py-24 text-white lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading eyebrow="04 — Galeri Penghargaan" title="Siswa berprestasi." text="Apresiasi atas usaha santri di bidang akademik dan olahraga, termasuk cabang sepak bola." light />
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {awardees.map(({ name, award, event, image, imagePosition }, index) => (
+              <article key={`${name}-${award}-${event}`} className="rounded-[24px] border border-white/10 bg-white/[.04] p-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
+                <div className="mb-6 overflow-hidden rounded-[18px] border border-white/10 bg-white/[.03]">
+                  <img
+                    src={image}
+                    alt={`Foto penghargaan ${name}: ${award}${event ? ` — ${event}` : ''}`}
+                    className={`aspect-[16/10] w-full object-cover ${imagePosition ?? 'object-center'}`}
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-serif text-3xl text-gold">0{index + 1}</span>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-50/60">Prestasi Santri</span>
+                </div>
+                <h3 className="mt-8 font-serif text-3xl text-white">{name}</h3>
+                <p className="mt-3 text-sm leading-6 text-emerald-50/75">{award}{event && ` — ${event}`}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="ekstrakurikuler" className="scroll-mt-20 bg-sand px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="05 — Ekstrakurikuler" title="Bertumbuh lewat pengalaman nyata." /><div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">{activities.map(([num, title, text]) => <article key={num} className="group rounded-[24px] border border-emerald-950/10 bg-cream p-6 shadow-[0_10px_22px_rgba(11,46,41,0.04)] transition duration-300 hover:-translate-y-1 hover:border-emerald-800/40"><div className="flex items-center justify-between gap-4"><span className="font-serif text-3xl text-gold">{num}</span><span className="h-px flex-1 bg-emerald-900/10" /></div><h3 className="mt-8 font-serif text-2xl text-emerald-950 transition group-hover:text-emerald-700">{title}</h3><p className="mt-3 text-sm leading-6 text-stone-600">{text}</p></article>)}</div></div></section>
 
@@ -160,6 +198,15 @@ Talent is Our Strenght
                 Unduh File Informasi <Download size={17} className="shrink-0" />
               </a>
             </article>
+            <article className="flex flex-col justify-between rounded-2xl border border-emerald-900/10 bg-white p-5 sm:p-6">
+              <div>
+                <h3 className="font-serif text-xl text-emerald-950 sm:text-2xl">Brosur PPDB</h3>
+                <p className="mt-3 text-sm leading-6 text-stone-700 sm:text-base">Unduh satu file PDF yang berisi Brosur 1 dan Brosur 2.</p>
+              </div>
+              <a href="/brosur-ppdb.pdf" download="Brosur-PPDB.pdf" className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-emerald-900/20 bg-emerald-50 px-4 py-3 text-center text-sm font-bold leading-5 text-emerald-900 transition hover:bg-emerald-900 hover:text-white">
+                Unduh Brosur <Download size={17} className="shrink-0" />
+              </a>
+            </article>
           </div>
           <a href="https://web-dh-kediri.vercel.app/" target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-gold px-6 py-4 text-center text-sm font-bold text-emerald-950 transition hover:bg-emerald-900 hover:text-white sm:w-auto">Mulai Pendaftaran <ArrowRight size={17} /></a>
         </div>
@@ -167,9 +214,9 @@ Talent is Our Strenght
 
       <section id="syarat" className="scroll-mt-20 bg-cream px-5 py-24 lg:px-8"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2"><div><SectionHeading eyebrow="09 — Syarat Pendaftaran" title="Siapkan dokumen pendaftaran." text="Syarat, ketentuan beasiswa, dan dokumen yang perlu disiapkan tersedia lengkap di file informasi PPDB 2027/2028." /><a href="/Informasi_PPDB_SMP_SMA_DH%20KEDIRI%202027-2028.pdf" download className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-emerald-900/20 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-900 transition hover:bg-emerald-900 hover:text-white sm:w-auto">Unduh File Informasi <Download size={17} /></a></div><div className="rounded-2xl bg-sand p-8"><ShieldCheck className="text-emerald-800" size={34} strokeWidth={1.5} /><h3 className="mt-10 font-serif text-3xl">Butuh informasi lebih lanjut?</h3><p className="mt-3 leading-7 text-stone-600">Tim penerimaan kami siap membantu menjawab pertanyaan Ayah dan Bunda.</p><a href={WHATSAPP} className="mt-7 inline-flex items-center gap-2 font-bold text-emerald-800">Tanya panitia <ArrowRight size={17} /></a></div></div></section>
 
-      <section className="bg-sand px-5 py-24 lg:px-8"><div className="mx-auto max-w-3xl"><SectionHeading eyebrow="09 — Pertanyaan Umum" title="Yang sering ditanyakan." />{faqs.map(([question, answer], i) => <div key={question} className="mb-3 rounded-[20px] border border-emerald-950/10 bg-cream shadow-[0_8px_18px_rgba(11,46,41,0.04)]"><button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left font-serif text-xl"><span>{question}</span><ChevronDown className={`shrink-0 text-gold transition ${openFaq === i ? 'rotate-180' : ''}`} /></button>{openFaq === i && <p className="px-5 pb-5 text-sm leading-7 text-stone-600">{answer}</p>}</div>)}</div></section>
+      <section className="bg-sand px-5 py-24 lg:px-8"><div className="mx-auto max-w-3xl"><SectionHeading eyebrow="10 — Pertanyaan Umum" title="Yang sering ditanyakan." />{faqs.map(([question, answer], i) => <div key={question} className="mb-3 rounded-[20px] border border-emerald-950/10 bg-cream shadow-[0_8px_18px_rgba(11,46,41,0.04)]"><button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left font-serif text-xl"><span>{question}</span><ChevronDown className={`shrink-0 text-gold transition ${openFaq === i ? 'rotate-180' : ''}`} /></button>{openFaq === i && <p className="px-5 pb-5 text-sm leading-7 text-stone-600">{answer}</p>}</div>)}</div></section>
 
-      <section id="kontak" className="scroll-mt-20 bg-emerald-950 px-5 py-24 text-white lg:px-8"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><SectionHeading eyebrow="10 — Hubungi Kami" title="Mari mulai percakapan baik." text="Kunjungi kami atau hubungi panitia untuk mendapatkan informasi PPDB yang lebih lengkap." light /><div className="space-y-4 text-sm text-emerald-50/75">{[['0812 1183 2567', MessageCircle], ['dhkediri@gmail.com', Landmark], ['Jl. KH Wachid Hasyim, Bandar Lor, Kec. Mojoroto, Kota Kediri, Jawa Timur 64114', Mountain], ['Senin–Sabtu, 08.00–16.00 WIB', Users]].map(([text, Icon]) => <div key={text as string} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3"><div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 text-gold"><Icon size={18} /></div><span>{text as string}</span></div>)}</div></div><div className="min-h-72 overflow-hidden rounded-[28px] border border-white/10 bg-emerald-900 shadow-[0_18px_50px_rgba(0,0,0,0.18)]"><iframe title="Lokasi Pondok Darul Hijrah Kediri" src="https://www.google.com/maps?q=Kota%20Kediri%20Jawa%20Timur&output=embed" className="size-full min-h-72 border-0 opacity-80 grayscale" loading="lazy" /></div></div></section>
+      <section id="kontak" className="scroll-mt-20 bg-emerald-950 px-5 py-24 text-white lg:px-8"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]"><div><SectionHeading eyebrow="11 — Hubungi Kami" title="Mari mulai percakapan baik." text="Kunjungi kami atau hubungi panitia untuk mendapatkan informasi PPDB yang lebih lengkap." light /><div className="space-y-4 text-sm text-emerald-50/75">{[['0812 1183 2567', MessageCircle], ['dhkediri@gmail.com', Landmark], ['Jl. KH Wachid Hasyim, Bandar Lor, Kec. Mojoroto, Kota Kediri, Jawa Timur 64114', Mountain], ['Senin–Sabtu, 08.00–16.00 WIB', Users]].map(([text, Icon]) => <div key={text as string} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[.03] px-4 py-3"><div className="flex h-10 w-10 items-center justify-center rounded-full bg-gold/10 text-gold"><Icon size={18} /></div><span>{text as string}</span></div>)}</div></div><div className="min-h-72 overflow-hidden rounded-[28px] border border-white/10 bg-emerald-900 shadow-[0_18px_50px_rgba(0,0,0,0.18)]"><iframe title="Lokasi Pondok Darul Hijrah Kediri" src="https://www.google.com/maps?q=Kota%20Kediri%20Jawa%20Timur&output=embed" className="size-full min-h-72 border-0 opacity-80 grayscale" loading="lazy" /></div></div></section>
     </main>
     <footer className="bg-emerald-950 px-5 pb-8 text-white lg:px-8"><div className="mx-auto flex max-w-7xl flex-col gap-5 border-t border-white/10 pt-7 text-xs text-emerald-50/60 md:flex-row md:items-center md:justify-between"><p>© 2025 Darul Hijrah Kediri. Semua hak dilindungi.</p><div className="flex items-center gap-4"><a href="#beranda" className="transition hover:text-gold">Kembali ke atas</a><span className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/20 bg-gold/10 text-gold"><Camera size={16} /></span></div></div></footer>
   </div>
