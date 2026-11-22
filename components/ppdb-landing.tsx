@@ -67,13 +67,115 @@ const testimonials = [
   ['/sri-rahayu.jpg', '“Pondok yang nyaman untuk anak, memperhatikan kebutuhan santri dan kondisi wali santri, serta selalu berusaha memberikan yang terbaik.”', 'Sri Rahayu', 'Wali Santri'],
 ]
 
-const asatidz = [
-  ['/ust ahmad.webp', 'Ust. Budi Santoso, M.Pd', 'Pimpinan Pesantren'],
-  ['/ust juni.webp', 'Ust. Juni', 'Guru Tahfizh'],
-  ['/ust budi.webp', 'Ust. Ahmad Mubarok S.Hub.Int.', 'Pembina Asrama'],
-  ['/ust dihya.webp', 'Ustadzah Dihya, Lc, M.Ag', 'Guru Sekolah'],
-  ['/ust syahrul.webp', 'Ust. Syahrul', 'Pengurus Pesantren'],
+type AsatidzProfile = {
+  image?: string
+  name: string
+  education: string[]
+  roles: string[]
+}
+
+const asatidz: AsatidzProfile[] = [
+  {
+    name: 'Yogi Eko Widroko, M.Pd.I',
+    education: ['S1 Universitas Nusantara PGRI Kediri', 'S2 Darul Ulum Jombang'],
+    roles: ['Mudir / Pimpinan', 'Pengampu mata pelajaran Aqidah Akhlak'],
+  },
+  {
+    image: '/ust ahmad.webp',
+    name: 'Budi Santoso, M.Pd.',
+    education: ['S1 STAI Surabaya', 'S2 AN-Nur Lampung'],
+    roles: ['Wakil Mudir', 'Pengampu Tajwid bersanad (Matan Tuhfatul Athfal dan Al-Jazari)'],
+  },
+  {
+    image: '/ust dihya.webp',
+    name: "M. Dhiya'ul Haq H, Lc., M.Ag.",
+    education: ['S1 Angaff University, Yaman', 'S2 Ma’had Aly Lirboyo'],
+    roles: ['Pengampu mata pelajaran Bahasa Arab'],
+  },
+  {
+    image: '/ust juni.webp',
+    name: 'Baharudin Juni Hermawan, S.Pd.',
+    education: ['S1 Universitas Nusantara PGRI Kediri'],
+    roles: ['Pengampu mata pelajaran Bahasa Indonesia, Biologi, dan Matematika'],
+  },
+  {
+    image: '/ust syahrul.webp',
+    name: 'Syahrul Mubarak',
+    education: [],
+    roles: ['Pengampu Siroh & Tadabur'],
+  },
 ]
+
+const unggulan: AsatidzProfile[] = [
+  {
+    image: '/ust budi.webp',
+    name: 'Ahmad Mubarak Abdullah, S.Hub. Int.',
+    education: ['Universitas Airlangga Surabaya'],
+    roles: ['Koordinator Pendidikan (Formal dan Diniyah)', 'Pengampu mata pelajaran Bahasa Inggris'],
+  },
+  {
+    name: 'Ust. Muhammad Toha',
+    education: ['Alumni Ponpes Al-Amin Madura'],
+    roles: ['Mas’ul Program Tahfidz'],
+  },
+  {
+    name: 'Coach Ahmad Faruq',
+    education: ['Lisensi D PSSI'],
+    roles: ['Pelatih SSB (Sekolah Sepak Bola) Darul Hijrah Kediri'],
+  },
+  {
+    name: 'Sensei Jendi Setiawan',
+    education: ['Juri Kejurnas, Jakarta 2017', 'Wasit dan Juri SE-Malang Raya 2018'],
+    roles: ['Pelatih Beladiri Jujitsu'],
+  },
+]
+
+function AsatidzCard({ teacher }: { teacher: AsatidzProfile }) {
+  const initials = teacher.name
+    .split(' ')
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+
+  return (
+    <article className="group overflow-hidden rounded-[26px] border border-emerald-900/10 bg-[#f7faf9] shadow-[0_10px_26px_rgba(11,46,41,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(11,46,41,0.12)]">
+      <div className="overflow-hidden bg-sand">
+        {teacher.image ? (
+          <img
+            src={teacher.image}
+            alt={teacher.name}
+            className="aspect-[4/5] w-full object-cover object-top saturate-[0.85] transition duration-500 group-hover:scale-[1.04] group-hover:saturate-100"
+          />
+        ) : (
+          <div className="grid aspect-[4/5] place-items-center bg-emerald-900/5">
+            <span className="grid size-24 place-items-center rounded-full bg-emerald-900/10 font-serif text-3xl text-emerald-950">
+              {initials}
+            </span>
+          </div>
+        )}
+      </div>
+      <div className="space-y-4 p-5">
+        <h3 className="font-serif text-[1.5rem] leading-tight text-emerald-950">{teacher.name}</h3>
+        <div>
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Lulusan</p>
+          {teacher.education.length > 0 ? (
+            <ul className="list-inside list-disc space-y-1 text-sm leading-5 text-stone-600">
+              {teacher.education.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          ) : (
+            <p className="text-sm leading-5 text-stone-600">Informasi pendidikan belum dicantumkan.</p>
+          )}
+        </div>
+        <div>
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Jabatan / Pengajar</p>
+          <ul className="list-inside list-disc space-y-1 text-sm leading-5 text-stone-600">
+            {teacher.roles.map((role) => <li key={role}>{role}</li>)}
+          </ul>
+        </div>
+      </div>
+    </article>
+  )
+}
 
 const faqs = [
   ['Berapa kuota penerimaan santri baru?', 'Kuota kami terbatas agar setiap santri mendapatkan pendampingan yang optimal. Silakan hubungi panitia untuk informasi kuota terbaru.'],
@@ -139,7 +241,19 @@ Talent is Our Strenght
 
       <section id="program" className="scroll-mt-20 bg-emerald-950 px-5 py-24 text-white lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="02 — Program Unggulan" title="Bekal lengkap untuk perjalanan yang panjang." text="Perpaduan pendidikan Al-Qur’an, akademik, dan pengalaman hidup dalam satu ekosistem pembinaan." light /><div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">{programs.map(({ icon: Icon, title, text }, i) => <article key={title} className={`group rounded-[24px] border p-6 shadow-[0_10px_25px_rgba(0,0,0,0.08)] transition duration-300 hover:-translate-y-1 hover:border-gold/60 ${i === 0 ? 'border-gold/60 bg-gold text-emerald-950' : 'border-white/10 bg-white/[.04]'} `}><div className={`mb-8 flex h-12 w-12 items-center justify-center rounded-2xl ${i === 0 ? 'bg-emerald-950/10 text-emerald-950' : 'bg-white/10 text-gold'}`}><Icon size={22} strokeWidth={1.8} /></div><h3 className="font-serif text-[1.7rem] leading-tight">{title}</h3><p className={`mt-3 text-sm leading-6 ${i === 0 ? 'text-emerald-900/75' : 'text-emerald-50/70'}`}>{text}</p></article>)}</div></div></section>
 
-      <section className="bg-cream px-5 py-24 lg:px-8"><div className="mx-auto max-w-7xl"><SectionHeading eyebrow="03 — Asatidz & Pengurus" title="Dibimbing oleh mereka yang menjadi teladan." /><div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">{asatidz.map(([img, name, role]) => <article key={name} className="group overflow-hidden rounded-[26px] border border-emerald-900/10 bg-[#f7faf9] shadow-[0_10px_26px_rgba(11,46,41,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(11,46,41,0.12)]"><div className="overflow-hidden bg-sand"><img src={img} alt={name} className="aspect-[4/5] w-full object-cover object-top saturate-[0.85] transition duration-500 group-hover:scale-[1.04] group-hover:saturate-100" /></div><div className="p-5"><p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Tim Pembina</p><h3 className="font-serif text-[1.8rem] leading-tight text-emerald-950">{name}</h3><p className="mt-2 text-sm font-medium text-stone-600">{role}</p></div></article>)}</div></div></section>
+      <section className="bg-cream px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeading eyebrow="03 — Asatidz & Pengurus" title="Dibimbing oleh mereka yang menjadi teladan." />
+          <h3 className="mb-5 font-serif text-2xl text-emerald-950">Pengasuh & Pengajar</h3>
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {asatidz.map((teacher) => <AsatidzCard key={teacher.name} teacher={teacher} />)}
+          </div>
+          <h3 className="mb-5 mt-12 font-serif text-2xl text-emerald-950">Pengampu Program Unggulan</h3>
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {unggulan.map((teacher) => <AsatidzCard key={teacher.name} teacher={teacher} />)}
+          </div>
+        </div>
+      </section>
 
       <section id="penghargaan" className="scroll-mt-20 bg-emerald-950 px-5 py-24 text-white lg:px-8">
         <div className="mx-auto max-w-7xl">
