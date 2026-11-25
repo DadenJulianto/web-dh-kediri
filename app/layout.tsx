@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'PPDB Darul Hijrah Kediri | Tumbuh dalam Iman, Berkarya dengan Ilmu',
   description: 'Penerimaan Santri Baru Darul Hijrah Kediri. Pendidikan tahfizh, adab, ilmu, dan life skill dalam lingkungan pesantren yang hangat.',
   generator: 'v0.app',
+  verification: {
+    google: 'tEpruVXV1A81eA23yLRc40N0jQ6EfxMXOV1-2vEPPwI',
+  },
   icons: {
     icon: '/logo-dh.png',
     apple: '/logo-dh.png',
