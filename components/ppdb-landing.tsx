@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Dialog } from '@base-ui/react/dialog'
+import Link from 'next/link'
 import {
   ArrowRight,
   BookOpen,
@@ -341,23 +342,32 @@ Talent is Our Strenght
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="03 — Galeri Penghargaan" title="Siswa berprestasi." text="Apresiasi atas usaha santri di bidang akademik dan olahraga, termasuk cabang sepak bola." light />
           <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {awardees.map(({ name, award, event, image, imagePosition }, index) => (
-              <article key={`${name}-${award}-${event}`} className="rounded-[24px] border border-white/10 bg-white/[.04] p-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
-                <div className="mb-6 overflow-hidden rounded-[18px] border border-white/10 bg-white/[.03]">
-                  <img
-                    src={image}
-                    alt={`Foto penghargaan ${name}: ${award}${event ? ` — ${event}` : ''}`}
-                    className={`aspect-[16/10] w-full object-cover ${imagePosition ?? 'object-center'}`}
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="font-serif text-3xl text-gold">0{index + 1}</span>
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-50/60">Prestasi Santri</span>
-                </div>
-                <h3 className="mt-8 font-serif text-3xl text-white">{name}</h3>
-                <p className="mt-3 text-sm leading-6 text-emerald-50/75">{award}{event && ` — ${event}`}</p>
-              </article>
-            ))}
+            {awardees.map(({ name, award, event, image, imagePosition }, index) => {
+              const card = (
+                <article className={`h-full rounded-[24px] border border-white/10 bg-white/[.04] p-7 shadow-[0_10px_25px_rgba(0,0,0,0.08)] ${index === 0 ? 'cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-amber-400/50' : ''}`}>
+                  <div className="mb-6 overflow-hidden rounded-[18px] border border-white/10 bg-white/[.03]">
+                    <img
+                      src={image}
+                      alt={index === 0
+                        ? 'Tim Sepak Bola Santri Darul Hijrah Kediri Juara 3 Liga Santri Kediri - SSB Kediri'
+                        : `Foto penghargaan ${name}: ${award}${event ? ` — ${event}` : ''}`}
+                      className={`aspect-[16/10] w-full object-cover ${imagePosition ?? 'object-center'}`}
+                    />
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="font-serif text-3xl text-gold">0{index + 1}</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-50/60">Prestasi Santri</span>
+                  </div>
+                  <h3 className="mt-8 font-serif text-3xl text-white">{name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-emerald-50/75">{award}{event && ` — ${event}`}</p>
+                  {index === 0 && <p className="mt-5 text-xs font-semibold text-gold">Baca selengkapnya →</p>}
+                </article>
+              )
+
+              return index === 0
+                ? <Link key={`${name}-${award}-${event}`} href="/ssb-kediri" className="block h-full rounded-[24px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-400">{card}</Link>
+                : <div key={`${name}-${award}-${event}`} className="h-full">{card}</div>
+            })}
           </div>
         </div>
       </section>

@@ -7,5 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 1,
     },
+    {
+      url: 'https://www.darulhijrahkediri.com/ssb-kediri',
+      changeFrequency: 'yearly',
+      priority: 0.8,
+    },
   ]
 }
